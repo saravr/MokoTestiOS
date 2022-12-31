@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -45,6 +45,10 @@
 		07D08105295E23E5008DFDA6 /* MokoTestiOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MokoTestiOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		07D08109295E23E5008DFDA6 /* MokoTestiOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MokoTestiOSUITests.swift; sourceTree = "<group>"; };
 		07D0810B295E23E5008DFDA6 /* MokoTestiOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MokoTestiOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		07D08119295E2454008DFDA6 /* shared.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = shared.framework; path = ../MokoTest/shared/build/cocoapods/framework/shared.framework; sourceTree = "<group>"; };
+		07D0811D295E248C008DFDA6 /* shared */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = shared; path = ../MokoTest/shared/build/cocoapods/framework/shared.framework/shared; sourceTree = "<group>"; };
+		07D08121295E284E008DFDA6 /* shared.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = shared.framework; path = "../MokoTest/shared/build/fat-framework/debug/shared.framework"; sourceTree = "<group>"; };
+		07D08125295E2A16008DFDA6 /* shared.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = shared.xcframework; path = ../MokoTest/shared/build/cocoapods/publish/debug/shared.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,8 @@
 				07D080FE295E23E5008DFDA6 /* MokoTestiOSTests */,
 				07D08108295E23E5008DFDA6 /* MokoTestiOSUITests */,
 				07D080EB295E23E4008DFDA6 /* Products */,
+				07D08118295E2454008DFDA6 /* Frameworks */,
+				EB9D6F57F20284D44C42FDAD /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -129,6 +135,24 @@
 			path = MokoTestiOSUITests;
 			sourceTree = "<group>";
 		};
+		07D08118295E2454008DFDA6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				07D08125295E2A16008DFDA6 /* shared.xcframework */,
+				07D08121295E284E008DFDA6 /* shared.framework */,
+				07D0811D295E248C008DFDA6 /* shared */,
+				07D08119295E2454008DFDA6 /* shared.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EB9D6F57F20284D44C42FDAD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,6 +163,7 @@
 				07D080E6295E23E4008DFDA6 /* Sources */,
 				07D080E7295E23E4008DFDA6 /* Frameworks */,
 				07D080E8295E23E4008DFDA6 /* Resources */,
+				0785B718295FFC4F00758643 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -253,6 +278,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0785B718295FFC4F00758643 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$SRCROOT/../MokoTest/gradlew\" -p \"$SRCROOT/../MokoTest/\" :shared:copyFrameworkResourcesToApp \\\n    -Pmoko.resources.PLATFORM_NAME=$PLATFORM_NAME \\\n    -Pmoko.resources.CONFIGURATION=$CONFIGURATION \\\n    -Pmoko.resources.BUILT_PRODUCTS_DIR=$BUILT_PRODUCTS_DIR \\\n    -Pmoko.resources.CONTENTS_FOLDER_PATH=$CONTENTS_FOLDER_PATH\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		07D080E6295E23E4008DFDA6 /* Sources */ = {
